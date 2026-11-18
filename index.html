@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mouu | Backend developer</title>
+<meta name="description" content="Hi, I’m Mohamed Ayman. I build backend systems with Python.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap">
+<style>
+:root{--bg:#070b09;--panel:#0c1511;--text:#d7ffe8;--muted:#7fa592;--accent:#39ff88;--line:#163325;
+--font:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;
+background-image:radial-gradient(55rem 28rem at 12% 8%,rgba(57,255,136,.13),transparent 70%);
+background-repeat:no-repeat}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
+header.bar{position:sticky;top:0;z-index:5;background:rgba(7,11,9,.85);backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:3.5rem;font-size:.85rem}
+.bar nav{display:flex;gap:1.3rem}
+.bar nav a{color:var(--muted);text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+.logo{color:var(--accent);font-weight:700}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:4rem 0}
+.prompt{color:var(--muted);margin:0 0 .6rem}
+.prompt b{color:var(--accent);font-weight:400}
+h1{margin:0;font-size:clamp(4rem,17vw,10rem);line-height:1;font-weight:800;letter-spacing:-.04em;color:var(--accent);
+text-shadow:0 0 12px rgba(57,255,136,.55),0 0 60px rgba(57,255,136,.35)}
+.role{margin:.4rem 0 1.6rem;font-size:clamp(1.3rem,4vw,2.2rem);font-weight:700;min-height:1.4em}
+.caret{display:inline-block;width:.55ch;height:1em;background:var(--accent);vertical-align:-.12em;
+margin-left:.12ch;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.intro{color:var(--muted);font-size:clamp(.95rem,2vw,1.1rem);margin:0 0 2.2rem;max-width:42ch}
+.cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{display:inline-block;font:inherit;font-size:.92rem;text-decoration:none;padding:.7rem 1.3rem;
+border-radius:.5rem;border:1px solid var(--accent);color:var(--accent);transition:box-shadow .2s}
+.btn.primary{background:var(--accent);color:var(--bg);font-weight:700}
+.btn:hover{box-shadow:0 0 22px rgba(57,255,136,.5)}
+section{padding:4.5rem 0;border-top:1px solid var(--line)}
+h2{margin:0 0 1.8rem;font-size:1.6rem;color:var(--accent)}
+.about p{max-width:62ch;margin:0 0 1rem;color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:1.6rem 0 0}
+.chips li{border:1px solid var(--line);background:var(--panel);padding:.35rem .9rem;border-radius:999px;font-size:.88rem}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:.7rem;padding:1.4rem;
+display:flex;flex-direction:column;gap:.8rem;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--accent);box-shadow:0 0 24px rgba(57,255,136,.15)}
+.card h3{margin:0;font-size:1.1rem}
+.card p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+.tags{display:flex;gap:.5rem;flex-wrap:wrap;font-size:.78rem;color:var(--accent)}
+.card .btn{align-self:flex-start;padding:.45rem 1rem;font-size:.85rem}
+.contact p{color:var(--muted);margin:0 0 1.4rem}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <span class="logo">mouu</span>
+  <nav><a href="#about">about</a><a href="#projects">projects</a><a href="#contact">contact</a></nav>
+</div></header>
+<main class="wrap">
+  <div class="hero">
+    <p class="prompt"><b>$</b> whoami</p>
+    <h1>mouu</h1>
+    <p class="role"><span id="role">Backend developer</span><span class="caret"></span></p>
+    <p class="intro">Hi, I’m Mohamed Ayman. I build backend systems with Python.</p>
+    <div class="cta"><a class="btn primary" href="#projects">View projects</a><a class="btn" href="#contact">Contact me</a></div>
+  </div>
+  <section id="about" class="about"><h2>About</h2><p>I’m a backend developer specialized in Python. I design and build APIs, work with databases, and create Discord bots.</p><p>Replace this text with a few lines about you: how you started, what you enjoy building, and what you’re learning now.</p><ul class="chips"><li>Python</li><li>FastAPI</li><li>SQL</li><li>Discord</li></ul></section>
+  <section id="projects"><h2>Projects</h2><div class="grid"><article class="card"><h3>Project One</h3><p>One or two lines about what this project does and why you built it.</p><div class="tags"><span>Python</span><span>FastAPI</span></div><a class="btn" href="https://github.com/your-username/project-one" target="_blank" rel="noopener">View project</a></article><article class="card"><h3>Project Two</h3><p>Describe your second project here.</p><div class="tags"><span>Python</span><span>SQL</span></div></article><article class="card"><h3>Discord Bot</h3><p>A Discord bot with commands, moderation, or whatever you built.</p><div class="tags"><span>Python</span><span>Discord</span></div></article></div></section>
+  <section id="contact" class="contact"><h2>Contact</h2><p>Want to work together or just say hi?</p><div class="cta"><a class="btn" href="mailto:you@example.com" target="_blank" rel="noopener">Email</a><a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></div></section>
+</main>
+<footer><div class="wrap">© Mohamed Ayman</div></footer>
+<script>
+(function(){
+  var words=["Backend developer", "Python", "FastAPI", "SQL", "Discord"];
+  var el=document.getElementById("role");
+  if(!el||window.matchMedia("(prefers-reduced-motion: reduce)").matches){return;}
+  var w=0,c=words[0].length,del=true;
+  function tick(){
+    var word=words[w];
+    c+=del?-1:1;
+    el.textContent=word.slice(0,c);
+    var d=del?45:85;
+    if(!del&&c===word.length){del=true;d=1600;}
+    else if(del&&c===0){del=false;w=(w+1)%words.length;d=300;}
+    setTimeout(tick,d);
+  }
+  setTimeout(tick,1800);
+})();
+</script>
+</body>
+</html>
