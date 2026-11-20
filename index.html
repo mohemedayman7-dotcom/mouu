@@ -3,84 +3,355 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>mouu | Backend developer</title>
-<meta name="description" content="Hi, I’m Mohamed Ayman. I build backend systems with Python.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap">
+<title>Mohamed Ayman | Backend developer</title>
+<meta name="description" content="Mohamed Ayman, backend developer. Python and TypeScript APIs, databases and Discord bots.">
+<meta name="theme-color" content="#070b09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mohamed Ayman | Backend developer">
+<meta property="og:description" content="Python and TypeScript APIs, databases and Discord bots.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070b09'/%3E%3Cpath d='M8 21V11l8 7 8-7v10' fill='none' stroke='%2339ff88' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap">
 <style>
-:root{--bg:#070b09;--panel:#0c1511;--text:#d7ffe8;--muted:#7fa592;--accent:#39ff88;--line:#163325;
---font:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark;
-padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{
+  --bg:#070b09;--panel:#0c1511;--panel-2:#101c16;--text:#d7ffe8;--muted:#8fb3a0;--accent:#39ff88;
+  --line:#163325;--line-2:#1f4531;
+  --font:"JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+  --radius:.8rem;color-scheme:dark;
+}
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:4rem}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
+html.lock{overflow:hidden}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;
-background-image:radial-gradient(55rem 28rem at 12% 8%,rgba(57,255,136,.13),transparent 70%);
-background-repeat:no-repeat}
+  background-image:radial-gradient(55rem 28rem at 12% 6%,rgba(57,255,136,.12),transparent 70%),
+  linear-gradient(rgba(57,255,136,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,136,.035) 1px,transparent 1px);
+  background-size:auto,44px 44px,44px 44px;background-repeat:no-repeat,repeat,repeat;background-attachment:scroll,fixed,fixed}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:62rem;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
-header.bar{position:sticky;top:0;z-index:5;background:rgba(7,11,9,.85);backdrop-filter:blur(8px);
-border-bottom:1px solid var(--line)}
-header.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:3.5rem;font-size:.85rem}
-.bar nav{display:flex;gap:1.3rem}
-.bar nav a{color:var(--muted);text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:.3rem}
+.wrap{max-width:68rem;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--accent);color:var(--bg);padding:.5rem 1rem;border-radius:.4rem;z-index:20;font-weight:700}
+.skip:focus{top:.75rem}
+
+/* header */
+header.bar{position:sticky;top:0;z-index:10;background:rgba(7,11,9,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+header.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:3.6rem;font-size:.85rem;gap:1rem}
+.logo{color:var(--accent);font-weight:800;text-decoration:none;letter-spacing:-.02em}
+.bar nav{display:flex;align-items:center;gap:1.5rem}
+.bar nav a{color:var(--muted);text-decoration:none;transition:color .2s}
 .bar nav a:hover{color:var(--accent)}
-.logo{color:var(--accent);font-weight:700}
-.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:4rem 0}
-.prompt{color:var(--muted);margin:0 0 .6rem}
+.bar nav a.pill{color:var(--accent);border:1px solid var(--line-2);padding:.3rem .85rem;border-radius:999px}
+.bar nav a.pill:hover{border-color:var(--accent);background:rgba(57,255,136,.08)}
+
+/* hero */
+.hero{min-height:calc(100svh - 3.6rem);display:flex;flex-direction:column;justify-content:center;padding:4rem 0 3rem}
+.prompt{color:var(--muted);margin:0 0 .6rem;font-size:.95rem}
 .prompt b{color:var(--accent);font-weight:400}
-h1{margin:0;font-size:clamp(4rem,17vw,10rem);line-height:1;font-weight:800;letter-spacing:-.04em;color:var(--accent);
-text-shadow:0 0 12px rgba(57,255,136,.55),0 0 60px rgba(57,255,136,.35)}
-.role{margin:.4rem 0 1.6rem;font-size:clamp(1.3rem,4vw,2.2rem);font-weight:700;min-height:1.4em}
-.caret{display:inline-block;width:.55ch;height:1em;background:var(--accent);vertical-align:-.12em;
-margin-left:.12ch;animation:blink 1.1s steps(1) infinite}
+h1{margin:0;font-size:clamp(2.8rem,11vw,6.6rem);line-height:1.02;font-weight:800;letter-spacing:-.045em;color:var(--text)}
+h1 span{color:var(--accent);text-shadow:0 0 14px rgba(57,255,136,.5),0 0 60px rgba(57,255,136,.28)}
+.role{margin:.9rem 0 1.4rem;font-size:clamp(1.15rem,3.4vw,1.8rem);font-weight:700;min-height:1.5em;color:var(--accent)}
+.caret{display:inline-block;width:.55ch;height:1em;background:var(--accent);vertical-align:-.12em;margin-left:.12ch;animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.intro{color:var(--muted);font-size:clamp(.95rem,2vw,1.1rem);margin:0 0 2.2rem;max-width:42ch}
-.cta{display:flex;gap:.9rem;flex-wrap:wrap}
-.btn{display:inline-block;font:inherit;font-size:.92rem;text-decoration:none;padding:.7rem 1.3rem;
-border-radius:.5rem;border:1px solid var(--accent);color:var(--accent);transition:box-shadow .2s}
-.btn.primary{background:var(--accent);color:var(--bg);font-weight:700}
-.btn:hover{box-shadow:0 0 22px rgba(57,255,136,.5)}
-section{padding:4.5rem 0;border-top:1px solid var(--line)}
-h2{margin:0 0 1.8rem;font-size:1.6rem;color:var(--accent)}
-.about p{max-width:62ch;margin:0 0 1rem;color:var(--text)}
-.chips{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:1.6rem 0 0}
-.chips li{border:1px solid var(--line);background:var(--panel);padding:.35rem .9rem;border-radius:999px;font-size:.88rem}
-.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:.7rem;padding:1.4rem;
-display:flex;flex-direction:column;gap:.8rem;transition:border-color .2s,box-shadow .2s}
-.card:hover{border-color:var(--accent);box-shadow:0 0 24px rgba(57,255,136,.15)}
-.card h3{margin:0;font-size:1.1rem}
-.card p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
-.tags{display:flex;gap:.5rem;flex-wrap:wrap;font-size:.78rem;color:var(--accent)}
-.card .btn{align-self:flex-start;padding:.45rem 1rem;font-size:.85rem}
-.contact p{color:var(--muted);margin:0 0 1.4rem}
-footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
-@media (prefers-reduced-motion:reduce){.caret{animation:none}html{scroll-behavior:auto}}
+.intro{color:var(--muted);font-size:clamp(.95rem,2vw,1.08rem);margin:0 0 2.2rem;max-width:46ch}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.55rem;font:inherit;font-size:.9rem;font-weight:500;text-decoration:none;padding:.72rem 1.25rem;
+  border-radius:.55rem;border:1px solid var(--line-2);background:transparent;color:var(--text);cursor:pointer;
+  transition:border-color .2s,box-shadow .2s,transform .2s,background .2s}
+.btn:hover{border-color:var(--accent);box-shadow:0 0 22px rgba(57,255,136,.25);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:700}
+.btn.primary:hover{box-shadow:0 0 26px rgba(57,255,136,.5)}
+.btn svg{width:1.1rem;height:1.1rem;flex:none;fill:currentColor}
+.stats{display:flex;flex-wrap:wrap;gap:1rem 2.8rem;margin:3.2rem 0 0;padding:1.4rem 0 0;border-top:1px solid var(--line);list-style:none}
+.stats li{display:flex;flex-direction:column}
+.stats strong{font-size:1.6rem;line-height:1.2;color:var(--accent);font-weight:800}
+.stats span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* sections */
+section{padding:5rem 0;border-top:1px solid var(--line)}
+.eyebrow{display:block;margin:0 0 .35rem;color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow::before{content:"// ";color:var(--accent)}
+h2{margin:0 0 2rem;font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.02em}
+.lead{color:var(--muted);max-width:58ch;margin:-1rem 0 2.2rem}
+.about-grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
+@media(min-width:48rem){.about-grid{grid-template-columns:1.4fr 1fr;align-items:start}}
+.about p{max-width:60ch;margin:0 0 1rem}
+.about p.dim{color:var(--muted)}
+.skills{display:grid;gap:1.1rem}
+.skills h3{margin:0 0 .5rem;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0}
+.chips li{border:1px solid var(--line);background:var(--panel);padding:.28rem .8rem;border-radius:999px;font-size:.82rem}
+
+/* project cards */
+.grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr))}
+.card{position:relative;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,transform .25s}
+.card:hover,.card:focus-within{border-color:var(--accent);box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 28px rgba(57,255,136,.12);transform:translateY(-3px)}
+.thumb{position:relative;aspect-ratio:16/10;background:#050806;overflow:hidden;border-bottom:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s ease}
+.card:hover .thumb img{transform:scale(1.04)}
+.thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(12,21,17,.85))}
+.count{position:absolute;right:.7rem;top:.7rem;z-index:1;background:rgba(7,11,9,.8);border:1px solid var(--line-2);color:var(--muted);
+  font-size:.72rem;padding:.12rem .55rem;border-radius:999px;backdrop-filter:blur(4px)}
+.card-body{display:flex;flex-direction:column;gap:.7rem;padding:1.2rem 1.3rem 1.3rem;flex:1}
+.card h3{margin:0;font-size:1.15rem;letter-spacing:-.01em}
+.card h3 button{all:unset;cursor:pointer}
+.card h3 button::after{content:"";position:absolute;inset:0}
+.card h3 button:focus-visible{outline:none}
+.card:has(h3 button:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+.card p{margin:0;color:var(--muted);font-size:.88rem;flex:1}
+.tags{display:flex;gap:.45rem;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.tags li{font-size:.72rem;color:var(--accent);border:1px solid var(--line-2);padding:.08rem .6rem;border-radius:999px;background:rgba(57,255,136,.05)}
+.more{font-size:.8rem;color:var(--accent);display:inline-flex;align-items:center;gap:.4rem}
+.more::after{content:"→";transition:transform .2s}
+.card:hover .more::after{transform:translateX(4px)}
+
+/* dialog */
+dialog.modal{width:min(66rem,calc(100vw - 1.5rem));max-height:calc(100dvh - 1.5rem);padding:0;border:1px solid var(--line-2);border-radius:1rem;
+  background:var(--panel);color:var(--text);box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 60px rgba(57,255,136,.08);overflow:hidden}
+dialog.modal[open]{display:flex;flex-direction:column;animation:pop .25s ease}
+dialog.modal::backdrop{background:rgba(2,5,3,.78);backdrop-filter:blur(5px)}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
+.m-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid var(--line);background:var(--panel-2)}
+.m-head h3{margin:0;font-size:1.1rem}
+.close{all:unset;cursor:pointer;width:2.2rem;height:2.2rem;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:.5rem;color:var(--muted);transition:.2s}
+.close:hover,.close:focus-visible{color:var(--accent);border-color:var(--accent);outline:none}
+.close svg{width:1rem;height:1rem;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.m-body{overflow:auto;padding:1.4rem 1.3rem 1.6rem;display:grid;gap:1.8rem;overscroll-behavior:contain}
+.m-summary p{margin:0 0 1rem;color:var(--muted);font-size:.92rem;max-width:75ch}
+.viewer{display:grid;gap:1.2rem}
+@media(min-width:52rem){.viewer{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}}
+.frame{background:#050806;border:1px solid var(--line);border-radius:.7rem;padding:.8rem;display:grid;place-items:center;min-height:12rem}
+.frame img{max-height:min(62vh,34rem);width:auto;height:auto;border-radius:.4rem}
+.caption h4{margin:0 0 .6rem;font-size:1rem;color:var(--accent)}
+.caption ul{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.86rem}
+.caption li{margin:0 0 .45rem}
+code{background:rgba(57,255,136,.08);border:1px solid var(--line);border-radius:.25rem;padding:.02rem .35rem;font-size:.9em;color:var(--text)}
+.thumbs{display:flex;gap:.6rem;overflow-x:auto;padding:.2rem .2rem .6rem;list-style:none;margin:0;grid-column:1/-1;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.thumbs button{all:unset;cursor:pointer;display:block;width:5.6rem;height:3.6rem;border-radius:.45rem;overflow:hidden;border:1px solid var(--line);opacity:.6;transition:.2s;background:#050806}
+.thumbs button:hover{opacity:1}
+.thumbs button[aria-current="true"]{opacity:1;border-color:var(--accent);box-shadow:0 0 14px rgba(57,255,136,.3)}
+.thumbs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:top}
+.m-features h4{margin:0 0 .8rem;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500}
+.m-features ul{margin:0;padding:0;list-style:none;display:grid;gap:.6rem 1.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));font-size:.85rem}
+.m-features li{padding-left:1.3rem;position:relative;color:var(--text)}
+.m-features li::before{content:"›";position:absolute;left:0;color:var(--accent);font-weight:700}
+
+/* contact */
+.contact-cards{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.c-card{display:flex;align-items:center;gap:1.1rem;padding:1.3rem 1.4rem;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;
+  transition:border-color .25s,box-shadow .25s,transform .25s}
+.c-card:hover{border-color:var(--accent);box-shadow:0 0 28px rgba(57,255,136,.14);transform:translateY(-2px)}
+.c-card svg{width:2.1rem;height:2.1rem;fill:var(--accent);flex:none}
+.c-card small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.c-card strong{display:block;font-size:1rem;word-break:break-word}
+.c-card.wa{border-color:var(--line-2);background:linear-gradient(135deg,rgba(57,255,136,.08),var(--panel) 60%)}
+.reply{color:var(--muted);font-size:.85rem;margin:1.4rem 0 0}
+
+footer{padding:2rem 0 calc(2rem + env(safe-area-inset-bottom,0));border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem 1.5rem}
+footer a{text-decoration:none}
+footer a:hover{color:var(--accent)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:40rem){
+  .bar nav a:not(.pill){display:none}
+  section{padding:3.8rem 0}
+  .stats{gap:1rem 2rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .caret{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  .card,.card .thumb img,.btn,.c-card,dialog.modal[open]{transition:none;animation:none}
+  .card:hover{transform:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="bar"><div class="wrap">
-  <span class="logo">mouu</span>
-  <nav><a href="#about">about</a><a href="#projects">projects</a><a href="#contact">contact</a></nav>
+  <a class="logo" href="#top" aria-label="Mohamed Ayman, home">mouu</a>
+  <nav aria-label="Primary">
+    <a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    <a class="pill" href="https://wa.me/201060540366" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
 </div></header>
-<main class="wrap">
-  <div class="hero">
+
+<main id="main" class="wrap">
+  <div class="hero" id="top">
     <p class="prompt"><b>$</b> whoami</p>
-    <h1>mouu</h1>
-    <p class="role"><span id="role">Backend developer</span><span class="caret"></span></p>
-    <p class="intro">Hi, I’m Mohamed Ayman. I build backend systems with Python.</p>
-    <div class="cta"><a class="btn primary" href="#projects">View projects</a><a class="btn" href="#contact">Contact me</a></div>
+    <h1>Mohamed <span>Ayman</span></h1>
+    <p class="role" aria-label="Backend developer"><span id="role" aria-hidden="true">Backend developer</span><span class="caret" aria-hidden="true"></span></p>
+    <p class="intro">I build backend systems, APIs and Discord bots with Python and TypeScript.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="https://wa.me/201060540366" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Message me</a>
+      <a class="btn" href="https://github.com/mohemedayman7-dotcom/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+    </div>
+    <ul class="stats" aria-label="At a glance">
+      <li><strong>3</strong><span>Production bots</span></li>
+      <li><strong>26k+</strong><span>Lines of TypeScript</span></li>
+      <li><strong>MySQL</strong><span>TypeORM &amp; SQL</span></li>
+    </ul>
   </div>
-  <section id="about" class="about"><h2>About</h2><p>I’m a backend developer specialized in Python. I design and build APIs, work with databases, and create Discord bots.</p><p>Replace this text with a few lines about you: how you started, what you enjoy building, and what you’re learning now.</p><ul class="chips"><li>Python</li><li>FastAPI</li><li>SQL</li><li>Discord</li></ul></section>
-  <section id="projects"><h2>Projects</h2><div class="grid"><article class="card"><h3>Project One</h3><p>One or two lines about what this project does and why you built it.</p><div class="tags"><span>Python</span><span>FastAPI</span></div><a class="btn" href="https://github.com/your-username/project-one" target="_blank" rel="noopener">View project</a></article><article class="card"><h3>Project Two</h3><p>Describe your second project here.</p><div class="tags"><span>Python</span><span>SQL</span></div></article><article class="card"><h3>Discord Bot</h3><p>A Discord bot with commands, moderation, or whatever you built.</p><div class="tags"><span>Python</span><span>Discord</span></div></article></div></section>
-  <section id="contact" class="contact"><h2>Contact</h2><p>Want to work together or just say hi?</p><div class="cta"><a class="btn" href="mailto:you@example.com" target="_blank" rel="noopener">Email</a><a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></div></section>
+
+  <section id="about" class="about reveal">
+    <span class="eyebrow">About</span>
+    <h2>Backend work that stays up</h2>
+    <div class="about-grid">
+      <div>
+        <p>I’m a backend developer. I design and build APIs, model data in SQL, and ship Discord bots that run around the clock for real communities.</p>
+        <p class="dim">Recent work includes a sports analytics bot with AI-generated game analysis and live odds, a Lavalink-based music player with audio effects, and a ticketing and giveaway system backed by MySQL.</p>
+      </div>
+      <div class="skills">
+        <div><h3>Languages</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>SQL</li></ul></div>
+        <div><h3>Frameworks &amp; tools</h3><ul class="chips"><li>FastAPI</li><li>Discord.js</li><li>TypeORM</li><li>Lavalink</li></ul></div>
+        <div><h3>Data</h3><ul class="chips"><li>MySQL</li><li>REST APIs</li><li>OpenAI API</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <span class="eyebrow">Projects</span>
+    <h2>Selected work</h2>
+    <p class="lead">Discord bots built in TypeScript. Open a project to browse its screenshots and feature list.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="contact" class="contact reveal">
+    <span class="eyebrow">Contact</span>
+    <h2>Let’s work together</h2>
+    <div class="contact-cards">
+      <a class="c-card wa" href="https://wa.me/201060540366" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+        <span><small>WhatsApp</small><strong>+20 106 054 0366</strong></span>
+      </a>
+      <a class="c-card" href="mailto:mohemedayman7@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg>
+        <span><small>Email</small><strong>mohemedayman7@gmail.com</strong></span>
+      </a>
+      <a class="c-card" href="https://github.com/mohemedayman7-dotcom/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gh"/></svg>
+        <span><small>GitHub</small><strong>mohemedayman7-dotcom</strong></span>
+      </a>
+    </div>
+    <p class="reply">The fastest way to reach me is WhatsApp, or send an email. Tell me what you’re building and I’ll get back to you.</p>
+  </section>
 </main>
-<footer><div class="wrap">© Mohamed Ayman</div></footer>
+
+<footer><div class="wrap">
+  <span>© <span id="year">2026</span> Mohamed Ayman</span>
+  <a href="#top">Back to top ↑</a>
+</div></footer>
+
+<dialog class="modal" id="modal" aria-labelledby="m-title">
+  <div class="m-head">
+    <h3 id="m-title"></h3>
+    <button class="close" type="button" id="m-close" aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+  </div>
+  <div class="m-body" id="m-body"></div>
+</dialog>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.76 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.7V17h16V7.7l-8 5.6-8-5.6ZM18.4 7H5.6l6.4 4.5L18.4 7Z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.08.9.92-3-.2-.31a8.2 8.2 0 1 1 6.86 3.74Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.17-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28Z"/></symbol>
+</svg>
+
+<script id="projects-data" type="application/json">[{"slug":"sports-odds","name":"Sports Odds","tagline":"Runs a server's sports coverage end to end: live scores, multi-bookmaker odds, AI game analysis and player prop picks.","tags":["TypeScript","Discord.js","MySQL","OpenAI","REST API"],"summary":"Sports Odds is a Discord bot that organizes a server's sports coverage into one category per sport and one thread per game. It posts schedules, pre-game research, multi-bookmaker odds, live play-by-play, player prop picks and community winner polls, and lets members run analysis on demand. It is written in TypeScript on Node.js with discord.js and TypeORM over MySQL, and draws on public sports data APIs and the OpenAI Responses API.","features":["One-command setup that creates sport categories and channels for seven sports","Automatic and manual game thread creation, with archiving after the game ends","Live score, play-by-play, highlight and status updates","AI pre-game and post-game analysis covering team form, head-to-head records, injuries and a confidence score","Multi-bookmaker odds comparison and a stake return calculator","Player prop picks generated for upcoming games","Community winner polls with a leaderboard of prediction accuracy","Staff configuration, feature toggles and action logging"],"shots":[{"src":"assets/projects/sports-odds/01-ai-game-analysis.png","title":"AI Game Analysis","points":["Per-match analysis embed generated from live team records and season statistics.","Header carries both teams with their records and the venue.","Prediction field names the favoured side with a confidence percentage.","Key Factors lists the reasoning behind the pick, weighted by home/away splits.","Both team records are repeated as their own fields so the numbers behind the call are visible."],"w":478,"h":758},{"src":"assets/projects/sports-odds/02-odds-comparison.png","title":"Odds Comparison","points":["Odds board for a single fixture, pulling prices from several bookmakers at once.","Each bookmaker is listed with home and away prices in both decimal and American formats.","Best available price per side is promoted into its own field.","Implied probabilities are calculated from the best price, not the average."],"w":335,"h":262},{"src":"assets/projects/sports-odds/03-prediction-card.png","title":"Prediction Card","points":["Community prediction totals alongside the model's own call for the same fixture.","Vote counts are rendered as text bars with percentages and raw totals per side.","AI prediction and confidence sit below the community split so the two can be compared directly.","Key Factors lists the statistics behind the model's pick."],"w":478,"h":366},{"src":"assets/projects/sports-odds/04-player-picks.png","title":"Player Picks","points":["Player prop suggestions for a single fixture, each with a line and a short rationale.","Match header carries the fixture and tip-off time.","Picks are numbered so the list can be read in order."],"w":478,"h":486},{"src":"assets/projects/sports-odds/05-live-scoreboard.png","title":"Live Scoreboard","points":["Every in-progress game across the tracked sports in one embed, grouped by sport.","Each line shows both teams, the score, and the period or clock.","Games with a dedicated channel link back to it; untracked games are marked as such.","Used to check scores before settling a bet without leaving Discord."],"w":335,"h":182}]},{"slug":"music-player","name":"Music Player","tagline":"Music bot on Lavalink with audio effects, playlists and a persistent control panel with server-rendered now-playing cards.","tags":["TypeScript","Discord.js","Lavalink","Canvas","MySQL"],"summary":"Music Player is a Discord music bot in TypeScript that handles slash commands, queueing, playlists, audio effects and a persistent control panel. Decoding and streaming are handled by external Lavalink audio nodes, which the bot searches and selects across. Per-server settings control DJ roles, channel allow-lists and queue limits, and the bot renders now-playing cards on the server side.","features":["Playback controls: play, skip, back, seek, pause, loop, queue view and volume","Playlists with personal, DJ and trending collections, plus YouTube mix import","Audio effects including speed, pitch, rate, karaoke, rotation, vibrato, tremolo and equalizer presets","Persistent control panel with playback buttons, an effects menu and a rendered now-playing card","Idle auto-disconnect with a configurable per-server timeout","Per-server settings for DJ role, channel allow-lists, queue size, playlist import size and volume limits","Listening statistics for each server and globally","Standalone now-playing image command"],"shots":[{"src":"assets/projects/music-player/01-play-request.png","title":"Play Request","points":["`/play` takes a query or a URL and replies with what it resolved to before playback starts.","The confirmation names the track, the artist and the requester, so a shared channel shows whose request is playing.","Playback joins the member's current voice channel; requesting from outside a voice channel is rejected first."],"w":700,"h":167},{"src":"assets/projects/music-player/02-now-playing.png","title":"Now Playing","points":["The control panel the bot keeps pinned: title, artist, and the track's own artwork rendered into a card.","Queue depth, volume, and play/pause state sit in one row of fields; active filters are listed underneath.","The card is drawn by the bot with node-canvas for every track, using the artwork's own blurred backdrop behind a circular cover, rather than posting the raw album image.","Buttons cover back, pause, skip, loop and volume, with an effects select menu underneath and an edit-effects button beside them."],"w":470,"h":500},{"src":"assets/projects/music-player/03-queue.png","title":"Queue","points":["`/queue` paginates the queue, with the current track held above the list rather than mixed into it.","Each entry carries its length, and the requester is shown for tracks someone else added.","Page, track count, and total runtime are in the fields; the page controls sit below the embed."],"w":560,"h":142},{"src":"assets/projects/music-player/04-effect-applied.png","title":"Effect Applied","points":["Effects are applied to the live player through Lavalink's filter chain rather than by restarting the track.","The confirmation names the effect and its setting, so it is clear what changed and by whom.","Effects survive track changes until they are turned off, which is why the panel lists them as active state rather than as a one-off action."],"w":560,"h":145},{"src":"assets/projects/music-player/05-visualizer.png","title":"Visualizer","points":["`/visualizer` posts the current track's card on its own at full size, without the control panel around it.","The same node-canvas render that backs the panel, at 1400x450, with the blurred artwork backdrop and circular cover.","Useful for a channel that only wants the artwork, or for grabbing the card to share elsewhere."],"w":560,"h":222}]},{"slug":"ticket-desk","name":"Ticket Desk","tagline":"Support tickets and giveaways in one bot: category panels, runtime-built forms, HTML transcripts and live response-time stats.","tags":["TypeScript","Discord.js","MySQL","TypeORM"],"summary":"Ticket Desk is a Discord bot in TypeScript that runs a support-ticket system and a giveaway system within one server. Users choose a category from a panel, answer that category's questions in a form, and receive a private channel. Staff close tickets into HTML transcripts, and the panel shows average staff response time. Giveaways support joining, editing, ending, rerolling and cancelling. It is built on discord.js with TypeORM over MySQL.","features":["Category-based ticket panel with a select menu built from configuration","Forms generated at runtime from per-category questions","Private ticket channels with per-ticket permissions for the opener and the category's support roles","Close, close-with-reason, add, remove, move and rename ticket commands","HTML transcripts posted to a log channel, optionally sent to the opener","Live average response-time figure on each panel","Giveaways with a join toggle, live entry count, edit, end, reroll and cancel actions","Welcome messages for new members"],"shots":[{"src":"assets/projects/ticket-desk/01-embed-editor.png","title":"Embed Editor","points":["Modal editor for the ticket embed, opened from the field buttons on the preview message.","One input per embed part: title, description, colour, footer text, thumbnail URL and author name.","The description is a paragraph input; the rest are single-line.","Submitting a field rebuilds the embed and edits the preview message in place."],"w":1280,"h":1255},{"src":"assets/projects/ticket-desk/02-embed-editor-result.png","title":"Embed Editor Result","points":["The preview message after the colour and footer fields were submitted.","Colour is applied to the embed's left border, and the footer text replaces the previous one.","The field buttons stay attached so another part of the embed can be edited next.","Each save replies with a confirmation that only the editor sees."],"w":1280,"h":1260},{"src":"assets/projects/ticket-desk/03-ticket-panel.png","title":"Ticket Panel","points":["The panel posted by `/panel`: an embed with the title, the instruction line and an Average Response Time field.","A select menu below the embed is built from the categories in the config, with each category's emoji and description.","Picking a category opens a modal with that category's questions, then creates a private channel named `ticket-<n>`.","The new channel hides itself from `@everyone`, allows the opener and the support role, and pings both.","The response time field reads N/A until the first staff reply has been recorded."],"w":1280,"h":1260},{"src":"assets/projects/ticket-desk/04-ticket-opened.png","title":"Ticket Opened","points":["A ticket channel created from the Support category, with the opener and the support role pinged.","The embed repeats the category's questions with the answers the opener typed into the modal.","Close and Close with Reason buttons sit under the embed for staff.","Closing generates an HTML transcript, posts it to the transcripts channel with a summary embed, DMs it to the opener and deletes the channel after five seconds."],"w":1280,"h":1260},{"src":"assets/projects/ticket-desk/05-giveaway.png","title":"Giveaway","points":["A giveaway embed posted by `/giveaway create` with the sponsor, winner count, entry count, end time, prize and role requirement.","Entries is a live count: the Join Giveaway button adds or removes the clicker and rewrites the field on the message.","The pencil and explosion buttons edit or cancel the giveaway, and End draws the winners immediately.","Giveaways are stored in MySQL, so an end time survives a bot restart."],"w":1280,"h":1260},{"src":"assets/projects/ticket-desk/06-response-time.png","title":"Response Time","points":["The same panel after staff replies have been recorded, with the average response time filled in.","Every non-opener message in a ticket channel stores the time since the ticket was opened.","The average of those rows is written back into every stored panel message, so the number on the panel is current."],"w":1280,"h":1260}]}]</script>
 <script>
 (function(){
-  var words=["Backend developer", "Python", "FastAPI", "SQL", "Discord"];
-  var el=document.getElementById("role");
-  if(!el||window.matchMedia("(prefers-reduced-motion: reduce)").matches){return;}
+  "use strict";
+  var DATA=JSON.parse(document.getElementById("projects-data").textContent);
+  var $=function(s,r){return (r||document).querySelector(s);};
+
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function rich(s){return esc(s).replace(/`([^`]+)`/g,"<code>$1</code>");}
+
+  /* cards */
+  var grid=$("#grid");
+  grid.innerHTML=DATA.map(function(p,i){
+    var s=p.shots[0];
+    return '<article class="card">'+
+      '<div class="thumb"><img src="'+esc(s.src)+'" width="'+s.w+'" height="'+s.h+'" alt="'+esc(p.name+" preview: "+s.title)+'" loading="lazy" decoding="async">'+
+      '<span class="count">'+p.shots.length+' screenshots</span></div>'+
+      '<div class="card-body"><h3><button type="button" data-i="'+i+'" aria-haspopup="dialog">'+esc(p.name)+'</button></h3>'+
+      '<p>'+esc(p.tagline)+'</p>'+
+      '<ul class="tags">'+p.tags.slice(0,4).map(function(t){return "<li>"+esc(t)+"</li>";}).join("")+'</ul>'+
+      '<span class="more">View details</span></div></article>';
+  }).join("");
+
+  /* modal */
+  var modal=$("#modal"),body=$("#m-body"),title=$("#m-title"),opener=null;
+
+  function renderShot(p,k){
+    var s=p.shots[k];
+    $("#m-frame").innerHTML='<img src="'+esc(s.src)+'" width="'+s.w+'" height="'+s.h+'" alt="'+esc(p.name+": "+s.title)+'">';
+    $("#m-cap").innerHTML='<h4>'+esc(s.title)+'</h4><ul>'+s.points.map(function(x){return "<li>"+rich(x)+"</li>";}).join("")+'</ul>';
+    Array.prototype.forEach.call(document.querySelectorAll("#m-thumbs button"),function(b,j){
+      if(j===k){b.setAttribute("aria-current","true");}else{b.removeAttribute("aria-current");}
+    });
+  }
+
+  function open(i){
+    var p=DATA[i];
+    title.textContent=p.name;
+    body.innerHTML=
+      '<div class="m-summary"><p>'+esc(p.summary)+'</p><ul class="tags">'+p.tags.map(function(t){return "<li>"+esc(t)+"</li>";}).join("")+'</ul></div>'+
+      '<div class="viewer"><div class="frame" id="m-frame"></div><div class="caption" id="m-cap" aria-live="polite"></div>'+
+      '<ul class="thumbs" id="m-thumbs" aria-label="Screenshots">'+p.shots.map(function(s,k){
+        return '<li><button type="button" data-k="'+k+'" aria-label="'+esc(s.title)+'"><img src="'+esc(s.src)+'" alt="" loading="lazy"></button></li>';
+      }).join("")+'</ul></div>'+
+      '<div class="m-features"><h4>Key features</h4><ul>'+p.features.map(function(f){return "<li>"+esc(f)+"</li>";}).join("")+'</ul></div>';
+    renderShot(p,0);
+    body.scrollTop=0;
+    $("#m-thumbs").onclick=function(e){var b=e.target.closest("button");if(b){renderShot(p,+b.dataset.k);}};
+    $("#m-thumbs").onkeydown=function(e){
+      var cur=document.activeElement.closest("button");if(!cur){return;}
+      var k=+cur.dataset.k,n=p.shots.length;
+      if(e.key==="ArrowRight"){k=(k+1)%n;}else if(e.key==="ArrowLeft"){k=(k-1+n)%n;}else{return;}
+      e.preventDefault();renderShot(p,k);
+      document.querySelector('#m-thumbs button[data-k="'+k+'"]').focus();
+    };
+    document.documentElement.classList.add("lock");
+    modal.showModal();
+  }
+
+  grid.addEventListener("click",function(e){
+    var b=e.target.closest("button[data-i]");
+    if(b){opener=b;open(+b.dataset.i);}
+  });
+  $("#m-close").addEventListener("click",function(){modal.close();});
+  modal.addEventListener("click",function(e){if(e.target===modal){modal.close();}});
+  modal.addEventListener("close",function(){
+    document.documentElement.classList.remove("lock");
+    if(opener){opener.focus();}
+  });
+
+  /* section reveal */
+  var rev=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+    },{threshold:.08});
+    rev.forEach(function(el){io.observe(el);});
+  }else{rev.forEach(function(el){el.classList.add("in");});}
+
+  $("#year").textContent=new Date().getFullYear();
+
+  /* typing role */
+  var words=["Backend developer","Python","TypeScript","Discord bots","SQL"];
+  var el=$("#role");
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){return;}
   var w=0,c=words[0].length,del=true;
   function tick(){
     var word=words[w];
